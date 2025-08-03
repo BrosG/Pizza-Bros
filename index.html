@@ -399,10 +399,11 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-glass);
             border-radius: var(--radius-lg);
-            padding: var(--space-6);
+            padding: var(--space-8) var(--space-6) var(--space-6) var(--space-6);
             position: relative;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
+            margin-top: var(--space-6);
         }
 
         .step-card::before {
@@ -429,7 +430,7 @@
 
         .step-number {
             position: absolute;
-            top: -20px;
+            top: -25px;
             right: var(--space-6);
             width: 60px;
             height: 60px;
@@ -452,7 +453,7 @@
             color: var(--primary-red);
             margin-bottom: var(--space-3);
             margin-right: 80px;
-            margin-top: var(--space-2);
+            margin-top: 0;
         }
 
         .step-content {
@@ -874,7 +875,10 @@
                         <div class="step-number">1</div>
                         <h3 class="step-title">Préparer les légumes</h3>
                         <div class="step-content">
-                            <p><strong>Tomates</strong> : lave-les, coupe-les en gros morceaux (pas besoin d'éplucher ni d'épépiner).</p>
+                            <p><strong>Tomates</strong> : lave-les, coupe-les en gros morceaux.</p>
+                            <div class="cooking-params" style="background: var(--gradient-accent); color: var(--primary-dark); margin: 8px 0;">
+                                💡 Astuce: Pour éplucher facilement, incise en croix et plonge 30sec dans l'eau bouillante, puis eau froide
+                            </div>
                             <p><strong>Poivrons</strong> : épépine et coupe en gros morceaux.</p>
                             <p><strong>Oignons/ail</strong> : épluche-les.</p>
                         </div>
