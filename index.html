@@ -390,7 +390,7 @@
 
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: var(--space-6);
         }
 
@@ -399,11 +399,10 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-glass);
             border-radius: var(--radius-lg);
-            padding: var(--space-8) var(--space-6) var(--space-6) var(--space-6);
+            padding: var(--space-6);
             position: relative;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
-            margin-top: var(--space-6);
         }
 
         .step-card::before {
@@ -424,44 +423,52 @@
         }
 
         .step-card:hover {
-            transform: translateY(-8px) rotateY(5deg);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-colored);
         }
 
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+
         .step-number {
-            position: absolute;
-            top: -25px;
-            right: var(--space-6);
-            width: 60px;
-            height: 60px;
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
             background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: white;
             box-shadow: var(--shadow-medium);
-            z-index: 10;
-            border: 3px solid white;
         }
 
         .step-title {
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-red);
-            margin-bottom: var(--space-3);
-            margin-right: 80px;
-            margin-top: 0;
+            margin: 0;
+            flex: 1;
         }
 
         .step-content {
             color: var(--text-secondary);
             font-weight: 500;
             line-height: 1.6;
+        }
+
+        .step-content p {
             margin-bottom: var(--space-3);
-            margin-right: 80px;
+        }
+
+        .step-content p:last-child {
+            margin-bottom: 0;
         }
 
         .cooking-params {
