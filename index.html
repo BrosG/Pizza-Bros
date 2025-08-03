@@ -429,19 +429,21 @@
 
         .step-number {
             position: absolute;
-            top: -15px;
+            top: -20px;
             right: var(--space-6);
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: white;
             box-shadow: var(--shadow-medium);
+            z-index: 10;
+            border: 3px solid white;
         }
 
         .step-title {
@@ -449,7 +451,8 @@
             font-weight: 700;
             color: var(--primary-red);
             margin-bottom: var(--space-3);
-            margin-right: 60px;
+            margin-right: 80px;
+            margin-top: var(--space-2);
         }
 
         .step-content {
@@ -457,6 +460,7 @@
             font-weight: 500;
             line-height: 1.6;
             margin-bottom: var(--space-3);
+            margin-right: 80px;
         }
 
         .cooking-params {
@@ -478,7 +482,7 @@
 
         /* Notes Section */
         .notes-section {
-            grid-column: 6 / 13;
+            grid-column: 1 / 13;
             grid-row: 8 / 9;
             background: var(--gradient-secondary);
             border-radius: var(--radius-xl);
@@ -487,6 +491,11 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .notes-section::before {
@@ -722,7 +731,7 @@
             }
 
             .notes-section {
-                grid-column: 5 / 9;
+                grid-column: 1 / 9;
             }
         }
 
