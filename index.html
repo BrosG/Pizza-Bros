@@ -3,364 +3,569 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍅 Bros Sauce Pizza - Recette Professionnelle</title>
+    <title>🍅 Bros Sauce Pizza - Recette Révolutionnaire</title>
     <style>
-        /* Modern CSS Reset */
+        /* Modern CSS Reset & Base Setup */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        /* CSS Variables for Design System */
+        /* Advanced Design System */
         :root {
-            --primary-red: #d32f2f;
-            --secondary-red: #ff5722;
-            --accent-orange: #ff9800;
-            --dark-text: #1a1a1a;
-            --medium-text: #424242;
-            --light-text: #757575;
-            --bg-light: #fafafa;
-            --bg-white: #ffffff;
-            --border-light: #e0e0e0;
+            /* Color Palette - Ultra Vibrant */
+            --primary-red: #e53e3e;
+            --secondary-red: #ff6b6b;
+            --accent-orange: #ffa726;
+            --accent-yellow: #ffeb3b;
+            --primary-dark: #1a202c;
+            --secondary-dark: #2d3748;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --bg-glass: rgba(255, 255, 255, 0.25);
+            --border-glass: rgba(255, 255, 255, 0.18);
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #e53e3e 0%, #ff6b6b 50%, #ffa726 100%);
+            --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            --gradient-dark: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            
+            /* Shadows */
             --shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
             --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
-            --border-radius: 12px;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
+            --shadow-hard: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-colored: 0 20px 60px rgba(229, 62, 62, 0.3);
+            --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            
+            /* Spacing System */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-full: 9999px;
+            
+            /* Typography */
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* Typography System */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Global Styles */
+        html {
+            scroll-behavior: smooth;
             font-size: 16px;
         }
 
-        /* Layout Container */
-        .container {
-            max-width: 210mm;
-            margin: 0 auto;
-            padding: var(--spacing-md);
-            background: var(--bg-white);
-            box-shadow: var(--shadow-medium);
-            border-radius: var(--border-radius);
-            margin-top: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            overflow-x: hidden;
         }
 
-        /* Header Styling */
-        .header {
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(229, 62, 62, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 167, 38, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+            z-index: -2;
+            animation: backgroundFlow 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundFlow {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(2deg); }
+        }
+
+        /* Container System */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-6);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section - Revolutionary Design */
+        .hero-section {
             text-align: center;
-            margin-bottom: var(--spacing-xl);
+            padding: var(--space-24) 0 var(--space-16);
             position: relative;
             overflow: hidden;
         }
 
-        .header::before {
+        .hero-section::before {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 152, 0, 0.03), transparent);
-            animation: shimmer 3s infinite;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            border-radius: 50%;
+            animation: heroRotate 30s linear infinite;
         }
 
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+        @keyframes heroRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--space-6);
             letter-spacing: -0.02em;
+            line-height: 0.9;
+            position: relative;
+            z-index: 2;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--medium-text);
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
             font-weight: 500;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--space-8);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
         }
 
-        .yield-info {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-orange), var(--secondary-red));
-            color: white;
-            padding: var(--spacing-xs) var(--spacing-md);
-            border-radius: 25px;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-full);
             font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: var(--shadow-soft);
+            font-size: 1.1rem;
+            color: var(--primary-red);
+            box-shadow: var(--shadow-glass);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Grid Layout */
-        .recipe-grid {
+        .hero-badge:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-colored);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Bento Grid Layout */
+        .bento-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(8, minmax(120px, auto));
+            gap: var(--space-6);
+            margin-bottom: var(--space-16);
         }
 
-        /* Card Styling */
-        .card {
-            background: var(--bg-white);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--border-light);
+        /* Ingredients Card - Showcase */
+        .ingredients-card {
+            grid-column: 1 / 6;
+            grid-row: 1 / 4;
+            background: var(--bg-glass);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
             position: relative;
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .card::before {
+        .ingredients-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-red), var(--accent-orange));
+            background: var(--gradient-primary);
         }
 
-        .card h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
+        .ingredients-card:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: var(--shadow-colored);
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 800;
             color: var(--primary-red);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--space-6);
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: var(--space-3);
         }
 
-        /* Ingredients Styling */
-        .ingredients ul {
-            list-style: none;
-            space-y: var(--spacing-xs);
+        .ingredients-grid {
+            display: grid;
+            gap: var(--space-4);
         }
 
-        .ingredients li {
-            padding: var(--spacing-xs) 0;
-            border-bottom: 1px solid var(--border-light);
+        .ingredient-item {
             display: flex;
             align-items: flex-start;
-            gap: var(--spacing-sm);
-            position: relative;
+            gap: var(--space-3);
+            padding: var(--space-3);
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInLeft 0.6s ease-out forwards;
         }
 
-        .ingredients li:last-child {
-            border-bottom: none;
+        .ingredient-item:nth-child(1) { animation-delay: 0.1s; }
+        .ingredient-item:nth-child(2) { animation-delay: 0.2s; }
+        .ingredient-item:nth-child(3) { animation-delay: 0.3s; }
+        .ingredient-item:nth-child(4) { animation-delay: 0.4s; }
+        .ingredient-item:nth-child(5) { animation-delay: 0.5s; }
+        .ingredient-item:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .ingredients li::before {
-            content: '🥄';
-            min-width: 20px;
-            font-size: 0.9rem;
+        .ingredient-item:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: translateX(4px);
+        }
+
+        .ingredient-icon {
+            font-size: 1.2rem;
+            min-width: 24px;
+        }
+
+        .ingredient-content {
+            flex: 1;
         }
 
         .ingredient-name {
-            font-weight: 600;
-            color: var(--dark-text);
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: var(--space-1);
         }
 
         .ingredient-details {
-            color: var(--medium-text);
-            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
-        /* Steps Styling */
-        .steps {
-            grid-column: 1 / -1;
-        }
-
-        .step {
-            background: var(--bg-light);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-            border-left: 4px solid var(--secondary-red);
+        /* Quick Summary Card */
+        .summary-card {
+            grid-column: 6 / 13;
+            grid-row: 1 / 3;
+            background: var(--gradient-accent);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
             position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: summaryShine 3s ease-in-out infinite;
+        }
+
+        @keyframes summaryShine {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        .summary-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .summary-points {
+            display: grid;
+            gap: var(--space-3);
+        }
+
+        .summary-point {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-2) var(--space-3);
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--primary-dark);
             transition: all 0.3s ease;
         }
 
-        .step:hover {
-            box-shadow: var(--shadow-soft);
-            transform: translateY(-2px);
+        .summary-point:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(1.02);
+        }
+
+        /* Steps Section - Revolutionary Layout */
+        .steps-section {
+            grid-column: 1 / 13;
+            grid-row: 3 / 8;
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .steps-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-8);
+            text-align: center;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .step-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px) rotateY(5deg);
+            box-shadow: var(--shadow-colored);
         }
 
         .step-number {
             position: absolute;
-            top: -10px;
-            left: var(--spacing-md);
-            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
-            color: white;
-            width: 30px;
-            height: 30px;
+            top: -15px;
+            right: var(--space-6);
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: var(--shadow-soft);
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: white;
+            box-shadow: var(--shadow-medium);
         }
 
-        .step h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--primary-red);
-            margin-bottom: var(--spacing-xs);
-            margin-left: 20px;
+            margin-bottom: var(--space-3);
+            margin-right: 60px;
         }
 
         .step-content {
-            margin-left: 20px;
-        }
-
-        .step-details {
-            color: var(--medium-text);
-            margin-top: var(--spacing-xs);
+            color: var(--text-secondary);
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: var(--space-3);
         }
 
         .cooking-params {
-            background: var(--accent-orange);
+            background: var(--gradient-dark);
             color: white;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.875rem;
             display: inline-block;
-            margin-top: var(--spacing-xs);
-        }
-
-        /* Summary and Notes */
-        .summary, .notes {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, var(--bg-light), var(--bg-white));
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            border: 2px dashed var(--border-light);
-        }
-
-        .summary h2, .notes h2 {
-            color: var(--secondary-red);
-        }
-
-        .summary ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-md);
-        }
-
-        .summary li {
-            background: white;
-            padding: var(--spacing-sm);
-            border-radius: 8px;
             box-shadow: var(--shadow-soft);
-            border-left: 3px solid var(--accent-orange);
+            transition: all 0.3s ease;
         }
 
-        .notes p {
-            font-style: italic;
+        .cooking-params:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Notes Section */
+        .notes-section {
+            grid-column: 6 / 13;
+            grid-row: 8 / 9;
+            background: var(--gradient-secondary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notes-section::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: notesFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes notesFloat {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-30%, -30%) rotate(180deg); }
+        }
+
+        .notes-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+        }
+
+        .notes-content {
             font-size: 1.1rem;
-            color: var(--medium-text);
-            text-align: center;
-            margin-top: var(--spacing-md);
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Print Instructions */
-        .print-instructions {
-            background: linear-gradient(135deg, #f5f5f5, #ffffff);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
-            border: 2px solid var(--border-light);
-        }
-
-        .print-instructions h2 {
-            color: var(--primary-red);
-            text-align: center;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .print-tips {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
-        }
-
-        .print-tip {
-            background: white;
-            padding: var(--spacing-md);
-            border-radius: 8px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .print-tip h3 {
-            color: var(--secondary-red);
-            margin-bottom: var(--spacing-xs);
-            font-size: 1rem;
-        }
-
-        .print-tip p {
-            font-size: 0.9rem;
-            color: var(--medium-text);
-        }
-
-        /* PDF Generation Button */
+        /* PDF Button - Floating Action */
         .pdf-section {
-            text-align: center;
-            margin-top: var(--spacing-xl);
-            padding: var(--spacing-lg);
+            position: fixed;
+            bottom: var(--space-8);
+            right: var(--space-8);
+            z-index: 1000;
         }
 
         .pdf-button {
-            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            background: var(--gradient-primary);
             color: white;
             border: none;
-            padding: var(--spacing-md) var(--spacing-xl);
-            border-radius: 50px;
-            font-size: 1.2rem;
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-full);
+            font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: var(--shadow-medium);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-colored);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-family: inherit;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
         }
 
         .pdf-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(211, 47, 47, 0.3);
-            background: linear-gradient(135deg, var(--secondary-red), var(--primary-red));
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 25px 70px rgba(229, 62, 62, 0.4);
         }
 
         .pdf-button:active {
-            transform: translateY(-1px);
+            transform: translateY(-2px) scale(1.02);
         }
 
-        /* Footer Styles */
+        /* Footer */
         .app-footer {
-            margin-top: var(--spacing-xl);
-            padding: var(--spacing-lg) 0;
-            border-top: 1px solid var(--border-light);
-            background: linear-gradient(135deg, var(--bg-light), var(--bg-white));
+            margin-top: var(--space-20);
+            padding: var(--space-8) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
         }
 
         .footer-content {
@@ -368,18 +573,18 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: var(--spacing-md);
+            gap: var(--space-4);
         }
 
         .made-with-love {
-            color: var(--medium-text);
+            color: var(--text-secondary);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.9rem;
             transition: color 0.3s ease;
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: var(--space-2);
         }
 
         .made-with-love:hover {
@@ -398,14 +603,14 @@
 
         .footer-links {
             display: flex;
-            gap: var(--spacing-md);
+            gap: var(--space-4);
         }
 
         .footer-links a {
-            color: var(--light-text);
+            color: var(--text-light);
             text-decoration: none;
-            padding: var(--spacing-xs);
-            border-radius: 8px;
+            padding: var(--space-2);
+            border-radius: var(--radius-md);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -414,13 +619,8 @@
 
         .footer-links a:hover {
             color: var(--primary-red);
-            background: rgba(211, 47, 47, 0.1);
+            background: rgba(229, 62, 62, 0.1);
             transform: translateY(-2px);
-        }
-
-        .footer-links svg {
-            width: 20px;
-            height: 20px;
         }
 
         /* Print Styles */
@@ -436,53 +636,60 @@
                 line-height: 1.4;
             }
 
-            .container {
-                max-width: none;
-                margin: 0;
-                padding: 0;
-                box-shadow: none;
-                border-radius: 0;
-            }
-
-            .pdf-section {
+            body::before {
                 display: none;
             }
 
+            .main-container {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .pdf-section,
             .app-footer {
                 display: none;
             }
 
-            .header::before {
+            .hero-section {
+                padding: var(--space-8) 0 var(--space-6);
+            }
+
+            .hero-section::before {
                 display: none;
             }
 
-            h1 {
-                font-size: 20pt;
-                color: #d32f2f !important;
+            .hero-title {
+                font-size: 24pt;
+                color: #e53e3e !important;
                 -webkit-text-fill-color: unset;
             }
 
-            .recipe-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+            .bento-grid {
+                display: block;
+                columns: 2;
+                column-gap: var(--space-6);
+                column-fill: balance;
             }
 
-            .card {
-                box-shadow: none;
+            .ingredients-card,
+            .summary-card,
+            .steps-section,
+            .notes-section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: var(--space-6);
+                background: white !important;
                 border: 1px solid #ccc;
-                break-inside: avoid;
-                page-break-inside: avoid;
+                backdrop-filter: none;
             }
 
-            .step {
+            .step-card {
                 break-inside: avoid;
                 page-break-inside: avoid;
-                background: #f9f9f9;
-            }
-
-            .step:hover {
-                transform: none;
-                box-shadow: none;
+                margin-bottom: var(--space-4);
+                background: #f9f9f9 !important;
+                backdrop-filter: none;
             }
 
             .cooking-params {
@@ -497,235 +704,252 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .bento-grid {
+                grid-template-columns: repeat(8, 1fr);
+            }
+
+            .ingredients-card {
+                grid-column: 1 / 5;
+            }
+
+            .summary-card {
+                grid-column: 5 / 9;
+            }
+
+            .steps-section {
+                grid-column: 1 / 9;
+            }
+
+            .notes-section {
+                grid-column: 5 / 9;
+            }
+        }
+
         @media (max-width: 768px) {
-            .container {
-                margin: 0;
-                padding: var(--spacing-sm);
-                border-radius: 0;
+            .main-container {
+                padding: var(--space-4);
             }
 
-            .recipe-grid {
+            .bento-grid {
                 grid-template-columns: 1fr;
-                gap: var(--spacing-md);
+                grid-template-rows: auto;
+                gap: var(--space-4);
             }
 
-            h1 {
-                font-size: 2rem;
+            .ingredients-card,
+            .summary-card,
+            .steps-section,
+            .notes-section {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 12vw, 4rem);
             }
 
             .footer-content {
                 flex-direction: column;
                 text-align: center;
-                gap: var(--spacing-sm);
+                gap: var(--space-3);
             }
 
-            .footer-links {
-                justify-content: center;
+            .pdf-button {
+                bottom: var(--space-4);
+                right: var(--space-4);
+                padding: var(--space-3) var(--space-4);
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1>🍅 Bros Sauce Pizza</h1>
-            <p class="subtitle">Monsieur Cuisine (sans épluchage)</p>
-            <span class="yield-info">Pour 12 pizzas 🍕</span>
-        </header>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">🍅 Bros Sauce Pizza</h1>
+            <p class="hero-subtitle">Monsieur Cuisine (sans épluchage)</p>
+            <div class="hero-badge">
+                <span>🍕</span>
+                <span>Pour 12 pizzas</span>
+            </div>
+        </section>
 
-        <!-- Recipe Content -->
-        <div class="recipe-grid">
-            <!-- Ingredients -->
-            <div class="card ingredients">
-                <h2>📝 Ingrédients</h2>
-                <ul>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">3 à 3,5 kg de tomates mûres</span>
+        <!-- Bento Grid Layout -->
+        <div class="bento-grid">
+            <!-- Ingredients Showcase -->
+            <div class="ingredients-card">
+                <h2 class="card-title">
+                    <span>📝</span>
+                    <span>Ingrédients</span>
+                </h2>
+                <div class="ingredients-grid">
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🍅</span>
+                        <div class="ingredient-content">
+                            <div class="ingredient-name">3 à 3,5 kg de tomates mûres</div>
                             <div class="ingredient-details">(tout type, bien rouges)</div>
                         </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">2 à 3 gros poivrons rouges</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">3 oignons</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">4 à 6 gousses d'ail</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">4 à 5 c. à soupe d'huile d'olive</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">2 à 3 c. à soupe d'origan séché</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">2 à 3 c. à soupe de basilic</span>
-                            <div class="ingredient-details">(frais ou séché)</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">Sel, poivre</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">1 à 2 c. à soupe de vinaigre balsamique</span>
-                            <div class="ingredient-details">(optionnel)</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">1 carotte râpée</span>
-                            <div class="ingredient-details">(optionnel, pour adoucir)</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <span class="ingredient-name">Pincée de piment ou poivre de Cayenne</span>
-                            <div class="ingredient-details">(optionnel)</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Quick Reference -->
-            <div class="card summary">
-                <h2>⚡ Résumé Express</h2>
-                <ul>
-                    <li><strong>Tout au robot</strong>, pas besoin d'éplucher !</li>
-                    <li><strong>Oignons/ail</strong> mixés et rissolés</li>
-                    <li><strong>Poivrons</strong> ajoutés et rissolés</li>
-                    <li><strong>Tomates</strong> (avec peau !) + herbes, cuire 1h</li>
-                    <li><strong>Mixer fort</strong> jusqu'à texture lisse</li>
-                    <li><strong>Réduire</strong> si besoin</li>
-                </ul>
-            </div>
-
-            <!-- Preparation Steps -->
-            <div class="card steps">
-                <h2>👨‍🍳 Préparation étape par étape</h2>
-
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Préparer les légumes</h3>
-                    <div class="step-content">
-                        <p><strong>Tomates</strong> : lave-les, coupe-les en gros morceaux (pas besoin d'éplucher ni d'épépiner).</p>
-                        <p><strong>Poivrons</strong> : épépine et coupe en gros morceaux.</p>
-                        <p><strong>Oignons/ail</strong> : épluche-les.</p>
                     </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Mixer oignons et ail</h3>
-                    <div class="step-content">
-                        <p>Mets oignons et ail dans le bol.</p>
-                        <span class="cooking-params">Mix : 10 sec / vitesse 6</span>
-                        <p class="step-details">Racle les parois.</p>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🌶️</span>
+                        <div class="ingredient-content">
+                            <div class="ingredient-name">2 à 3 gros poivrons rouges</div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Faire revenir</h3>
-                    <div class="step-content">
-                        <p>Ajoute l'huile d'olive.</p>
-                        <span class="cooking-params">Rissoler : 5 min / 120°C / vitesse 1</span>
-                        <p class="step-details">(sans bouchon)</p>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🧅</span>
+                        <div class="ingredient-content">
+                            <div class="ingredient-name">3 oignons</div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Ajouter poivrons et carotte râpée</h3>
-                    <div class="step-content">
-                        <p>Ajoute les poivrons (et la carotte si tu veux).</p>
-                        <span class="cooking-params">Mix : 10 sec / vitesse 5</span>
-                        <span class="cooking-params">Rissoler : 5 min / 120°C / vitesse 1</span>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🧄</span>
+                        <div class="ingredient-content">
+                            <div class="ingredient-name">4 à 6 gousses d'ail</div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h3>Ajouter tomates & assaisonnement</h3>
-                    <div class="step-content">
-                        <p>Mets les tomates coupées, origan, basilic, sel, poivre, vinaigre, piment si tu veux.</p>
-                        <p class="step-details">Pose le panier cuisson sur le couvercle (pas de bouchon).</p>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🫒</span>
+                        <div class="ingredient-content">
+                            <div class="ingredient-name">4 à 5 c. à soupe d'huile d'olive</div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <h3>Cuisson</h3>
-                    <div class="step-content">
-                        <span class="cooking-params">45 à 60 min / 100°C / vitesse 2</span>
-                        <p class="step-details">(sans gobelet, panier posé pour éviter les projections)</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">7</div>
-                    <h3>Mixer finement</h3>
-                    <div class="step-content">
-                        <span class="cooking-params">Mix : 1 min / vitesse 10</span>
-                        <p class="step-details">En augmentant progressivement (attention à la vapeur !)</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">8</div>
-                    <h3>Faire réduire si besoin</h3>
-                    <div class="step-content">
-                        <p>Si la sauce est trop liquide, prolonge la cuisson :</p>
-                        <span class="cooking-params">10-15 min / 120°C / vitesse 2</span>
-                        <p class="step-details">(toujours sans bouchon)</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">9</div>
-                    <h3>Goûter et ajuster</h3>
-                    <div class="step-content">
-                        <p>Goûte, ajuste sel/poivre/herbes selon tes goûts.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">10</div>
-                    <h3>Stocker & utiliser</h3>
-                    <div class="step-content">
-                        <p>Ta Bros Sauce est prête ! Conserve au frigo ou congèle en portions.</p>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🌿</span>
+                        <div class="ingredient-content">
+                            <div class="ingredient-name">Herbes & épices</div>
+                            <div class="ingredient-details">origan, basilic, sel, poivre</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Notes -->
-            <div class="notes">
-                <h2>💡 Note Bros</h2>
-                <p><em>La Bros Sauce, c'est la sauce tomate pizza maison la plus rapide, la plus clean, sans prise de tête, et 100% goût ! À toi les pizzas pros à la maison 🍕.</em></p>
+            <!-- Quick Summary -->
+            <div class="summary-card">
+                <h3 class="summary-title">
+                    <span>⚡</span>
+                    <span>Résumé Express</span>
+                </h3>
+                <div class="summary-points">
+                    <div class="summary-point">
+                        <span>🤖</span>
+                        <span>Tout au robot</span>
+                    </div>
+                    <div class="summary-point">
+                        <span>🚫</span>
+                        <span>Pas d'épluchage</span>
+                    </div>
+                    <div class="summary-point">
+                        <span>⏰</span>
+                        <span>1h de cuisson</span>
+                    </div>
+                    <div class="summary-point">
+                        <span>🎯</span>
+                        <span>Texture parfaite</span>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- PDF Generation Button -->
-        <div class="pdf-section">
-            <button onclick="generatePDF()" class="pdf-button">
-                📄 Générer PDF
-            </button>
+            <!-- Steps Section -->
+            <div class="steps-section">
+                <h2 class="steps-title">👨‍🍳 Préparation Étape par Étape</h2>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Préparer les légumes</h3>
+                        <div class="step-content">
+                            <p><strong>Tomates</strong> : lave-les, coupe-les en gros morceaux (pas besoin d'éplucher ni d'épépiner).</p>
+                            <p><strong>Poivrons</strong> : épépine et coupe en gros morceaux.</p>
+                            <p><strong>Oignons/ail</strong> : épluche-les.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Mixer oignons et ail</h3>
+                        <div class="step-content">
+                            <p>Mets oignons et ail dans le bol.</p>
+                            <div class="cooking-params">Mix : 10 sec / vitesse 6</div>
+                            <p style="margin-top: 8px;">Racle les parois.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Faire revenir</h3>
+                        <div class="step-content">
+                            <p>Ajoute l'huile d'olive.</p>
+                            <div class="cooking-params">Rissoler : 5 min / 120°C / vitesse 1</div>
+                            <p style="margin-top: 8px;">(sans bouchon)</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Ajouter poivrons</h3>
+                        <div class="step-content">
+                            <p>Ajoute les poivrons (et la carotte si tu veux).</p>
+                            <div class="cooking-params">Mix : 10 sec / vitesse 5</div>
+                            <div class="cooking-params" style="margin-top: 4px;">Rissoler : 5 min / 120°C / vitesse 1</div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h3 class="step-title">Ajouter tomates & herbes</h3>
+                        <div class="step-content">
+                            <p>Mets les tomates coupées, origan, basilic, sel, poivre, vinaigre, piment si tu veux.</p>
+                            <p style="margin-top: 8px;">Pose le panier cuisson sur le couvercle (pas de bouchon).</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">6</div>
+                        <h3 class="step-title">Cuisson principale</h3>
+                        <div class="step-content">
+                            <div class="cooking-params">45 à 60 min / 100°C / vitesse 2</div>
+                            <p style="margin-top: 8px;">(sans gobelet, panier posé pour éviter les projections)</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">7</div>
+                        <h3 class="step-title">Mixer finement</h3>
+                        <div class="step-content">
+                            <div class="cooking-params">Mix : 1 min / vitesse 10</div>
+                            <p style="margin-top: 8px;">En augmentant progressivement (attention à la vapeur !)</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">8</div>
+                        <h3 class="step-title">Réduire si besoin</h3>
+                        <div class="step-content">
+                            <p>Si la sauce est trop liquide, prolonge la cuisson :</p>
+                            <div class="cooking-params">10-15 min / 120°C / vitesse 2</div>
+                            <p style="margin-top: 8px;">(toujours sans bouchon)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="notes-section">
+                <h3 class="notes-title">
+                    <span>💡</span>
+                    <span>Note Bros</span>
+                </h3>
+                <p class="notes-content">
+                    La Bros Sauce, c'est la sauce tomate pizza maison la plus rapide, la plus clean, sans prise de tête, et 100% goût ! À toi les pizzas pros à la maison 🍕.
+                </p>
+            </div>
         </div>
 
         <!-- Footer -->
@@ -755,6 +979,14 @@
         </footer>
     </div>
 
+    <!-- Floating PDF Button -->
+    <div class="pdf-section">
+        <button onclick="generatePDF()" class="pdf-button">
+            <span>📄</span>
+            <span>Générer PDF</span>
+        </button>
+    </div>
+
     <script>
         function generatePDF() {
             // Optimiser pour l'impression
@@ -769,6 +1001,24 @@
                 document.title = originalTitle;
             }, 1000);
         }
+
+        // Smooth scroll for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling to any anchor links
+            const anchors = document.querySelectorAll('a[href^="#"]');
+            anchors.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
