@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍅 Bros Sauce Pizza - Recette Professionnelle</title>
+    <style>
+        /* Modern CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* CSS Variables for Design System */
+        :root {
+            --primary-red: #d32f2f;
+            --secondary-red: #ff5722;
+            --accent-orange: #ff9800;
+            --dark-text: #1a1a1a;
+            --medium-text: #424242;
+            --light-text: #757575;
+            --bg-light: #fafafa;
+            --bg-white: #ffffff;
+            --border-light: #e0e0e0;
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
+            --border-radius: 12px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+        }
+
+        /* Typography System */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+            font-size: 16px;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+            background: var(--bg-white);
+            box-shadow: var(--shadow-medium);
+            border-radius: var(--border-radius);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 152, 0, 0.03), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .yield-info {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-orange), var(--secondary-red));
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Grid Layout */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        /* Card Styling */
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--accent-orange));
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        /* Ingredients Styling */
+        .ingredients ul {
+            list-style: none;
+            space-y: var(--spacing-xs);
+        }
+
+        .ingredients li {
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            position: relative;
+        }
+
+        .ingredients li:last-child {
+            border-bottom: none;
+        }
+
+        .ingredients li::before {
+            content: '🥄';
+            min-width: 20px;
+            font-size: 0.9rem;
+        }
+
+        .ingredient-name {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .ingredient-details {
+            color: var(--medium-text);
+            font-size: 0.9rem;
+        }
+
+        /* Steps Styling */
+        .steps {
+            grid-column: 1 / -1;
+        }
+
+        .step {
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-left: 4px solid var(--secondary-red);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            box-shadow: var(--shadow-soft);
+            transform: translateY(-2px);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            left: var(--spacing-md);
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-red);
+            margin-bottom: var(--spacing-xs);
+            margin-left: 20px;
+        }
+
+        .step-content {
+            margin-left: 20px;
+        }
+
+        .step-details {
+            color: var(--medium-text);
+            margin-top: var(--spacing-xs);
+        }
+
+        .cooking-params {
+            background: var(--accent-orange);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Summary and Notes */
+        .summary, .notes {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--bg-light), var(--bg-white));
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            border: 2px dashed var(--border-light);
+        }
+
+        .summary h2, .notes h2 {
+            color: var(--secondary-red);
+        }
+
+        .summary ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .summary li {
+            background: white;
+            padding: var(--spacing-sm);
+            border-radius: 8px;
+            box-shadow: var(--shadow-soft);
+            border-left: 3px solid var(--accent-orange);
+        }
+
+        .notes p {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            text-align: center;
+            margin-top: var(--spacing-md);
+        }
+
+        /* Print Instructions */
+        .print-instructions {
+            background: linear-gradient(135deg, #f5f5f5, #ffffff);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            border: 2px solid var(--border-light);
+        }
+
+        .print-instructions h2 {
+            color: var(--primary-red);
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .print-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .print-tip {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .print-tip h3 {
+            color: var(--secondary-red);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1rem;
+        }
+
+        .print-tip p {
+            font-size: 0.9rem;
+            color: var(--medium-text);
+        }
+
+        /* PDF Generation Button */
+        .pdf-section {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+        }
+
+        .pdf-button {
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            color: white;
+            border: none;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
+            font-family: inherit;
+            letter-spacing: 0.5px;
+        }
+
+        .pdf-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(211, 47, 47, 0.3);
+            background: linear-gradient(135deg, var(--secondary-red), var(--primary-red));
+        }
+
+        .pdf-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Footer Styles */
+        .app-footer {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg) 0;
+            border-top: 1px solid var(--border-light);
+            background: linear-gradient(135deg, var(--bg-light), var(--bg-white));
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .made-with-love {
+            color: var(--medium-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .made-with-love:hover {
+            color: var(--primary-red);
+        }
+
+        .heart {
+            color: var(--primary-red);
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.1); }
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            padding: var(--spacing-xs);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+            background: rgba(211, 47, 47, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .footer-links svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            body {
+                background: white;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .pdf-section {
+                display: none;
+            }
+
+            .app-footer {
+                display: none;
+            }
+
+            .header::before {
+                display: none;
+            }
+
+            h1 {
+                font-size: 20pt;
+                color: #d32f2f !important;
+                -webkit-text-fill-color: unset;
+            }
+
+            .recipe-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .step {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                background: #f9f9f9;
+            }
+
+            .step:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .cooking-params {
+                background: #666 !important;
+                color: white !important;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                padding: var(--spacing-sm);
+                border-radius: 0;
+            }
+
+            .recipe-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-sm);
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🍅 Bros Sauce Pizza</h1>
+            <p class="subtitle">Monsieur Cuisine (sans épluchage)</p>
+            <span class="yield-info">Pour 12 pizzas 🍕</span>
+        </header>
+
+        <!-- Recipe Content -->
+        <div class="recipe-grid">
+            <!-- Ingredients -->
+            <div class="card ingredients">
+                <h2>📝 Ingrédients</h2>
+                <ul>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">3 à 3,5 kg de tomates mûres</span>
+                            <div class="ingredient-details">(tout type, bien rouges)</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">2 à 3 gros poivrons rouges</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">3 oignons</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">4 à 6 gousses d'ail</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">4 à 5 c. à soupe d'huile d'olive</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">2 à 3 c. à soupe d'origan séché</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">2 à 3 c. à soupe de basilic</span>
+                            <div class="ingredient-details">(frais ou séché)</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">Sel, poivre</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">1 à 2 c. à soupe de vinaigre balsamique</span>
+                            <div class="ingredient-details">(optionnel)</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">1 carotte râpée</span>
+                            <div class="ingredient-details">(optionnel, pour adoucir)</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="ingredient-name">Pincée de piment ou poivre de Cayenne</span>
+                            <div class="ingredient-details">(optionnel)</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="card summary">
+                <h2>⚡ Résumé Express</h2>
+                <ul>
+                    <li><strong>Tout au robot</strong>, pas besoin d'éplucher !</li>
+                    <li><strong>Oignons/ail</strong> mixés et rissolés</li>
+                    <li><strong>Poivrons</strong> ajoutés et rissolés</li>
+                    <li><strong>Tomates</strong> (avec peau !) + herbes, cuire 1h</li>
+                    <li><strong>Mixer fort</strong> jusqu'à texture lisse</li>
+                    <li><strong>Réduire</strong> si besoin</li>
+                </ul>
+            </div>
+
+            <!-- Preparation Steps -->
+            <div class="card steps">
+                <h2>👨‍🍳 Préparation étape par étape</h2>
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Préparer les légumes</h3>
+                    <div class="step-content">
+                        <p><strong>Tomates</strong> : lave-les, coupe-les en gros morceaux (pas besoin d'éplucher ni d'épépiner).</p>
+                        <p><strong>Poivrons</strong> : épépine et coupe en gros morceaux.</p>
+                        <p><strong>Oignons/ail</strong> : épluche-les.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Mixer oignons et ail</h3>
+                    <div class="step-content">
+                        <p>Mets oignons et ail dans le bol.</p>
+                        <span class="cooking-params">Mix : 10 sec / vitesse 6</span>
+                        <p class="step-details">Racle les parois.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Faire revenir</h3>
+                    <div class="step-content">
+                        <p>Ajoute l'huile d'olive.</p>
+                        <span class="cooking-params">Rissoler : 5 min / 120°C / vitesse 1</span>
+                        <p class="step-details">(sans bouchon)</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Ajouter poivrons et carotte râpée</h3>
+                    <div class="step-content">
+                        <p>Ajoute les poivrons (et la carotte si tu veux).</p>
+                        <span class="cooking-params">Mix : 10 sec / vitesse 5</span>
+                        <span class="cooking-params">Rissoler : 5 min / 120°C / vitesse 1</span>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Ajouter tomates & assaisonnement</h3>
+                    <div class="step-content">
+                        <p>Mets les tomates coupées, origan, basilic, sel, poivre, vinaigre, piment si tu veux.</p>
+                        <p class="step-details">Pose le panier cuisson sur le couvercle (pas de bouchon).</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Cuisson</h3>
+                    <div class="step-content">
+                        <span class="cooking-params">45 à 60 min / 100°C / vitesse 2</span>
+                        <p class="step-details">(sans gobelet, panier posé pour éviter les projections)</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <h3>Mixer finement</h3>
+                    <div class="step-content">
+                        <span class="cooking-params">Mix : 1 min / vitesse 10</span>
+                        <p class="step-details">En augmentant progressivement (attention à la vapeur !)</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">8</div>
+                    <h3>Faire réduire si besoin</h3>
+                    <div class="step-content">
+                        <p>Si la sauce est trop liquide, prolonge la cuisson :</p>
+                        <span class="cooking-params">10-15 min / 120°C / vitesse 2</span>
+                        <p class="step-details">(toujours sans bouchon)</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">9</div>
+                    <h3>Goûter et ajuster</h3>
+                    <div class="step-content">
+                        <p>Goûte, ajuste sel/poivre/herbes selon tes goûts.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">10</div>
+                    <h3>Stocker & utiliser</h3>
+                    <div class="step-content">
+                        <p>Ta Bros Sauce est prête ! Conserve au frigo ou congèle en portions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="notes">
+                <h2>💡 Note Bros</h2>
+                <p><em>La Bros Sauce, c'est la sauce tomate pizza maison la plus rapide, la plus clean, sans prise de tête, et 100% goût ! À toi les pizzas pros à la maison 🍕.</em></p>
+            </div>
+        </div>
+
+        <!-- PDF Generation Button -->
+        <div class="pdf-section">
+            <button onclick="generatePDF()" class="pdf-button">
+                📄 Générer PDF
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <a href="https://bros.ai" target="_blank" rel="noopener noreferrer" class="made-with-love">
+                    Made with <span class="heart" aria-hidden="true">❤️</span> by Bros AI
+                </a>
+                <div class="footer-links">
+                    <a href="https://github.com/Bros-AI" target="_blank" rel="noopener noreferrer" aria-label="Bros AI on GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/GauthierBros" target="_blank" rel="noopener noreferrer" aria-label="Gauthier Bros on X (formerly Twitter)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gauthier-bros/" target="_blank" rel="noopener noreferrer" aria-label="Gauthier Bros on LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function generatePDF() {
+            // Optimiser pour l'impression
+            const originalTitle = document.title;
+            document.title = "Bros Sauce Pizza - Recette";
+            
+            // Déclencher l'impression
+            window.print();
+            
+            // Restaurer le titre original
+            setTimeout(() => {
+                document.title = originalTitle;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
